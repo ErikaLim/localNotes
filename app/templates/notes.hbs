@@ -1,22 +1,38 @@
-<<div id="container">
 
-<p>
-  {{message}}
-</p>
+  <p>
+    {{message}}
+  </p>
 
-<ul>
-{{#each note in model}}
-  <li>{{note.title}}  {{note.body}} <button {{action "deleteNote" note}}>Delete</button></li>
+  <div class="ui list">
+    {{#each note in model}}
+      <div class="item">
+        {{note.title}}  {{note.body}}
+        <div class="ui basic button">
+          <button {{action "deleteNote" note}}>Delete</button>
+        </div>
+      </div>
 
-{{/each}}
-</ul>
-<p>{{input value =newTitle placeholder="Add a title"}}</p>
+    {{/each}}
+  </ul>
 
-<p>{{textarea value=newBody cols="50" rows="10" placeholder="Add a note"}}</p>
+  <p>
+    <div class="ui input">
+      {{input value =newTitle placeholder="Add a title"}}
+    </div>
+  </p>
 
-<p>
-  <div class="ui button">
-  <button {{action "create"}}>Add Note</button>
-</div>
-</p>
-</div>
+  <p>
+    <div class="ui small form">
+      <div class="field">
+        <div class="four wide field">
+        {{textarea value=newBody placeholder="Add a note"}}
+        </div>
+      </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="ui basic button">
+      <button {{action "create"}}>Add Note</button>
+    </div>
+  </p>
